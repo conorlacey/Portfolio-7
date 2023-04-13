@@ -170,11 +170,14 @@ how increasing your prior knowledge gets to you closer to the truth.
 prior_post %>% ggplot(aes(x=x, y=y)) + 
   geom_line(alpha=0.5, linewidth = 2, color = "#4169E1") +
   geom_vline(xintercept = 2) +
+    annotate("text", x = 2, y = -.06, label = "True Value") +
+  coord_cartesian(ylim = c(0,.5), clip = "off") +
   #Animation
   labs (title = "Amount of Prior Knowledge = {frame_time}%",
-        subtitle ="                                                                                                True Value",
+   #     subtitle ="                                                                                                True Value",
         x = "dMACS",
         y = "Density") + 
+  
   transition_time(frame) + 
   ease_aes('linear')
 ```
